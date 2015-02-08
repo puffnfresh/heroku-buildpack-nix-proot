@@ -8,8 +8,6 @@ DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 source $DIR/script-common
 
-check_for_s3
-
 export REAL_APP_DIR=${REAL_APP_DIR:-/app}
 export BUILD_DIR=${BUILD_DIR:-$REAL_APP_DIR}
 

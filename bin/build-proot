@@ -10,8 +10,6 @@ source $DIR/script-common
 
 test -d /nix
 
-check_for_s3
-
 suppress_locale_warnings
 install_nix
 
