@@ -29,19 +29,6 @@ nix-env -Q -p $PROG_PROFILE -i $nix
 topic "Switching to $PROG_NAME profile"
 nix-env --switch-profile $PROG_PROFILE
 
-topic "Trying to locate closure"
-test -e $CLOSURE || try_download_closure
-
-if [ -e $CLOSURE ]; then
-  topic "Trying to import previous environment from $CLOSURE"
-
-  # here it can fail, because we will rebuild everything
-  # in nix-install-proot, however, a failed import is an error
-  set +e
-  nix-store --import < $CLOSURE 2>&1| indent
-  set -e
-fi
-
 topic "Building $PROG_NAME from $NIX_FILE"
 
 # nix-build registers app as a garbage collector root -- prevents its being removed
